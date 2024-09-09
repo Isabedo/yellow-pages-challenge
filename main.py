@@ -1,4 +1,5 @@
 
+
 from data import people
 while True:
     print("oprime 1 para listar todos los usuarios")
@@ -11,11 +12,16 @@ while True:
     if opcion==1:
         print(people)
     elif opcion ==2:
-        x = str(input("ingrese el nombre del usuario: "))
-        y= input("ingrese el número del usuario: ")
+        nom = str(input("ingrese el nombre del usuario: "))
+        num = input("ingrese el número del usuario: ")
+        people[nom] = num
     elif opcion == 3:
-        print(people.get(input()))
-        people.update(input())
+        nombre = input("ingrese el nombre del usuario que desea modificar: ")
+        if people.get(nombre)== "none":
+            print("usuario no encontrado")
+        else:
+            nuevo = int(input("ingrese el nùmero: "))
+            people.update({nombre: nuevo})
         print(people)
     elif opcion == 4:
         people.pop(input())
